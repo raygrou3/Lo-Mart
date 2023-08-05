@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" href="CSS/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="JS/jquery-3.5.1.min.js"></script>
+    <script src="JS/multislider.min.js"></script>
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    /> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <!-- linking font from google fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+    /> -->
+    <!-- for linking icons -->
+    <!-- <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> -->
+    <!-- <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    /> -->
+    <title>Demo</title>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav>
+        <!--Navbar has two part the top one and the bottom one-->
+        <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
+
+        <!-- Navbar bottom part -->
+        <!-- Here I put the links to the other pages or nav links -->
+        <div class="navbar" id="navbar">
+            <div>
+                <button id="menuButton"><i class="fas fa-bars"></i></button>
+                <!--Logo-->
+                <a href="index.html">
+                    <img src="Images/lomart.jpg.png" alt="logo" width="400px" />
+                </a>
+            </div>
+            <div class="links">
+                <ul>
+                    <li class="nav-links">
+                        <a href="index.html" class="link" style="text-decoration: none ;">Home</a
+              >
+            </li>
+            <!-- <li class="nav-links">
+              <a href="shops.html" class="link" style="text-decoration: none">
+                Listed Shops
+              </a> -->
+                    </li>
+                    <li class="nav-links">
+                        <a href="products.html" class="link" style="text-decoration: none">Products</a
+              >
+            </li>
+            <li class="nav-links">
+              <a href="about.html" class="link" style="text-decoration: none"
+                >About</a
+              >
+            </li>
+            <li class="nav-links">
+              <a href="contact.html" class="link" style="text-decoration: none"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- The searchbar which will be in the right side of the links -->
+        <div class="searchbar">
+          <form action="#">
+            <input type="search" placeholder="Search Products" />
+            <i class="fa fa-search" id="search-icon"></i>
+          </form>
+        </div>
+        <div class="navbar-top">
+          <div>
+            <!--My account part-->
+            <div class="account">
+              <a href="index.html">
+                <button class="account-btn">
+                  <i class="fas fa-user-alt"></i>
+                </button>
+                <span class="account-text">My account</span>
+              </a>
+                        <!--When we click the btnShowAccountInfo this section will be displayed-->
+            </div>
+            <!--Shopping cart-->
+            <div class="shopping-cart">
+                <div class="sum-prices">
+                    <!--Shopping cart logo-->
+                    <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                    <!--The total prices of products in the shopping cart -->
+                    <h6 id="sum-prices"></h6>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="producstOnCart hide">
+            <div class="overlay"></div>
+            <div class="top">
+                <button id="closeButton">
+            <i class="fas fa-times-circle"></i>
+          </button>
+                <h3>Cart</h3>
+            </div>
+            <ul id="buyItems">
+                <h4 class="empty">Your shopping cart is empty</h4>
+                <!-- <li class="buyItem">
+						<img src="Images/producs-images/Mobiles/galaxynote10.png">
+						<div>
+							<h5>Products Name</h5>
+							<h6>₹199</h6>
+							<div>
+								<button>-</button>
+								<span class="countOfProduct">1</span>
+								<button>+</button>
+							</div>
+						</div>
+					</li> -->
+            </ul>
+            <button class="btn checkout hidden"><form>
+          <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_KIEIDuZc5zho2H" async> </script> </form>        </script>
+    </form></button>
+        </div>
+    </nav>
+    <br />
+    <!-- <header id="hearderSlide">
+      <div class="MS-content">
+        <a href="detail_page.html" class="item">
+          <img src="Images/2-2-2-2foodgroups_vegetables_detailfeature.jpg" />
+        </a>
+        <a href="dairy.html" class="item">
+          <img src="Images/dairy1.jpg" />
+        </a>
+        <a href="detail_page.html" class="item">
+          <img src="Images/toiletories.jpg" />
+        </a>
+        <a href="detail_page.html" class="item">
+          <img src="Images/stationary-goods-500x500.jpeg" />
+        </a>
+      </div>
+      <div class="MS-controls">
+        <button class="MS-right">
+          <i class="fas fa-chevron-right fa-3x"></i>
+        </button>
+        <button class="MS-left">
+          <i class="fas fa-chevron-left fa-3x"></i>
+        </button>
+      </div>
+    </header> -->
+    <main>
+        <!-- <div class="categories">
+        <div class="col-md-12">
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+            <a href="category1-vegetables.html"
+              ><img
+                src="images/2-2-2-2foodgroups_vegetables_detailfeature.jpg"
+                style="width: 100%"
+                height="300px"
+            /></a>
+          </div>
+          <div class="col-md-5">
+            <a href="category2-dairyproducts.html"
+              ><img src="images/dairy1.jpg" style="width: 100%" height="300px"
+            /></a>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-1"></div>
+
+          <div class="col-md-5">
+            <a href="category3-toletories.html"
+              ><img
+                src="images/toiletories.jpg"
+                style="width: 100%"
+                height="300px"
+            /></a>
+          </div>
+
+          <div class="col-md-5">
+            <a href="category4-stationary.html"
+              ><img
+                src="images/stationary-goods-500x500.jpeg"
+                style="width: 100%"
+                height="300px"
+            /></a>
+          </div>
+
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+      <br />
+      <br /> -->
+        <section class="main-section">
+            <div class="product-container">
+                <h3>Products</h3>
+                <div class="products">
+                    <div class="product">
+                        <div class="product-under">
+                            <figure class="product-image">
+                                <img src="Images/tomato.jfif" alt="popular groceries" />
+                                <div class="product-over">
+                                    <button class="btn btn-small addToCart" data-product-id="17">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                                    <a href="detail_page.html" class="btn btn-small">More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Tomatoes</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">999</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/okra.jfif" alt="popular groceries" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="18">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Okra</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">599</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/cabbage.jfif"
+                    alt="popular groceries"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="19">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Cabbage</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">650</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/palak.jfif" alt="popular groceries" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="20">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Palak</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">899</span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/brinjal.jpeg"
+                    alt="popular groceries"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="21">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Brinjal</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">999</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/pantene.jfif" alt="popular groceries" height="200px" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="22">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Pantene Shampoo</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">599</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/dove.jfif"
+                    alt="popular groceries"
+                    height="200px"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="23">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Dove Shampoo</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">650</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/beershampoo.jfif" alt="popular groceries" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="24">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Beer Shampoo</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">899</span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/fog.jfif"
+                    alt="popular groceries"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="25">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Fog Perfume</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">999</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/ghadi.jfif" alt="popular groceries" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="26">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Ghadi Detergent</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">599</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/chandrika.jfif"
+                    alt="popular groceries"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="27">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Chandrika Soap</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">650</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/vicco.jfif" alt="popular groceries" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="28">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Vicco WSO Cream</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">899</span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/tissue.jfif"
+                    alt="popular groceries"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="29">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Tissue Roll</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">999</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/nivea.jfif" alt="popular groceries"  height="200px"/>
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="30">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Nivea Facewash</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">599</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img
+                    src="Images/garnier.jfif"
+                    alt="popular groceries"
+                  />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="31">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Garnier Facewash</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">650</span></h6>
+                </div>
+              </div>
+            </div>
+            <div class="product">
+              <div class="product-under">
+                <figure class="product-image">
+                  <img src="Images/mosquitobat.jfif" alt="popular groceries" height="200px" />
+                  <div class="product-over">
+                    <button class="btn btn-small addToCart" data-product-id="32">
+                      <i class="fas fa-cart-plus"></i>Add to cart
+                    </button>
+                    <a href="detail_page.html" class="btn btn-small"
+                      >More Info</a
+                    >
+                  </div>
+                </figure>
+                <div class="product-summary">
+                  <h4 class="productName">Mosquito Bat</h4>
+                  <span class="stars"></span>
+                  <p>luctus quis et est. Integer pretium purus</p>
+                  <h6 class="price">₹<span class="priceValue">899</span></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form>
+            <button type="submit" formaction="products.html">1</button>
+            <button type="submit" formaction="product2.html">2</button>
+          </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-second">
+        <div class="footer-column-1">
+          <h3>News</h3>
+          <a href="#"></a>
+                                    <a href="#">No</a>
+                                    <a href="#">i will nott</a>
+                                </div>
+                                <div class="footer-column-2">
+                                    <h3>Customer service</h3>
+                                    <a href="#">Contact</a>
+                                    <a href="#">terms of purchase</a>
+                                    <a href="#">common questions</a>
+                                </div>
+                                <div class="footer-column-3">
+                                    <h3>About us</h3>
+                                    <a href="#">Who we are</a>
+                                    <a href="#">Our Services</a>
+                                    <a href="#">Events</a>
+                                </div>
+                        </div>
+                        <ul class="footer-last">
+                            <li>
+                                <p><i class="fab fa-cc-mastercard"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fab fa-cc-paypal"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fab fa-cc-visa"></i></p>
+                            </li>
+                            <li>
+                                <p><i class="fab fa-cc-amex"></i></p>
+                            </li>
+                        </ul>
+                        </footer>
+                        <script src="js/script.js"></script>
+                        <script src="shopping-cart.js"></script>
+</body>
+
+</html>
